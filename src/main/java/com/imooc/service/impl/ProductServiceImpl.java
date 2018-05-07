@@ -51,6 +51,7 @@ public class ProductServiceImpl implements ProductService {
     public void decreaseStock(List<CartDto> cartDTOList) {
         for (CartDto cartDto : cartDTOList) {
             ProductInfo productInfo = repository.findOne( cartDto.getProductId() );
+
             if (productInfo==null){
                 throw new SellException( ResultEnum.PRODUCT_NOT_EXIST );
             }
